@@ -17,3 +17,26 @@ Make a canvas html object, with the canvas id, optionally, you can also give it 
 After this it also creates a ctx variable that you can start referencing in your code without needing to do canvas.getContext("2d")
 
 Optionally if you define a frame function, it will call that every frame. Add a dt parameter and it will also give you delta time :D
+
+## Ok, but why would i add this?
+
+Good question... anyways;
+There's plenty of other features that come with it.
+
+### Useful general case use functions
+
+Functions like Remap, Clamp, getRandom...
+
+Very simple and small functions that are useful very often (idk why they don't come with js tbh)
+
+### Other classes
+
+Vector2, Vector3 (in the works lol), audio handling classes...
+
+Apart from just holding values they come with functions in them for easy use (normiziling vector, get lenght of vector etc)
+
+## **Spend less time coding repetitive code, and get straight into building your next project!**
+
+### Wow you are really selling this aren't you?
+
+## Nah it's completly free!
