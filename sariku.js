@@ -1,57 +1,4 @@
-let canvas = document.getElementById("canvas")
-if(canvas.getAttribute('property') !== null) {
-    switch (canvas.getAttribute('property')) {
-        case "fullscreen": {
-            canvas.setAttribute("width", window.innerWidth)
-            canvas.setAttribute("height", window.innerHeight)
-            break;
-        }
-        case "square": {
-            canvas.setAttribute("width", window.innerHeight)
-            break;
-        }
-    }
-}
-let ctx = canvas.getContext("2d");
-
-let lastFrame = Date.now();
-function animationFrame() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-    let now = Date.now();
-    let dt = now - lastFrame;
-    lastFrame = now;
-
-    frame(dt)
-
-    window.requestAnimationFrame(animationFrame)
-}
-
-if (typeof frame == 'function') {
-    window.requestAnimationFrame(animationFrame)
-}
-
-function StrokeLine(p1, p2) {
-    ctx.beginPath();
-    ctx.moveTo(p1.x, p1.y);
-    ctx.lineTo(p2.x, p2.y);
-    ctx.stroke();
-    ctx.closePath();
-}
-
-function StrokeCircle(p, r) {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, r, 0, Math.PI*2);
-    ctx.stroke();
-    ctx.closePath();
-}
-
-function FillCircle(p, r) {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, r, 0, Math.PI*2);
-    ctx.fill();
-    ctx.closePath();
-}
+//#region OTHER
 
 let Remap = (value, from1, to1, from2, to2) => (value - from1) / (to1 - from1) * (to2 - from2) + from2;
 
@@ -364,3 +311,81 @@ SoundPlayer.prototype.stop = function(when) {
 };
 
 //#endregion
+
+//#endregion
+
+let canvas = document.getElementById("canvas")
+if(canvas.getAttribute('property') !== null) {
+    switch (canvas.getAttribute('property')) {
+        case "fullscreen": {
+            canvas.setAttribute("width", window.innerWidth)
+            canvas.setAttribute("height", window.innerHeight)
+            break;
+        }
+        case "square": {
+            canvas.setAttribute("width", window.innerHeight)
+            break;
+        }
+    }
+}
+let ctx = canvas.getContext("2d");
+
+let input = {}
+
+let mouse = new Vector2(0, 0);
+
+window.addEventListener("keydown", (e) => {
+    input[e.code] = true;
+})
+
+window.addEventListener("keyup", (e) => {
+    input[e.code] = false;
+})
+
+window.addEventListener("mousemove", (e) => {
+    mouse.x = e.offsetX;
+    mouse.y = e.offsetY;
+})
+
+if (typeof setup == 'function') {
+    setup()
+}
+
+let lastFrame = Date.now();
+function animationFrame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    let now = Date.now();
+    let dt = now - lastFrame;
+    lastFrame = now;
+
+    frame(dt)
+
+    window.requestAnimationFrame(animationFrame)
+}
+
+if (typeof frame == 'function') {
+    window.requestAnimationFrame(animationFrame)
+}
+
+function StrokeLine(p1, p2) {
+    ctx.beginPath();
+    ctx.moveTo(p1.x, p1.y);
+    ctx.lineTo(p2.x, p2.y);
+    ctx.stroke();
+    ctx.closePath();
+}
+
+function StrokeCircle(p, r) {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, r, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.closePath();
+}
+
+function FillCircle(p, r) {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, r, 0, Math.PI*2);
+    ctx.fill();
+    ctx.closePath();
+}
