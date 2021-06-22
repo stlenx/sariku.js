@@ -16,6 +16,8 @@ let ctx = canvas.getContext("2d");
 
 let lastFrame = Date.now();
 function animationFrame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
     let now = Date.now();
     let dt = now - lastFrame;
     lastFrame = now;
