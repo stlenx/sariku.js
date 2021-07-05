@@ -1,0 +1,97 @@
+:root {
+    --veryDark: #0a0a0a;
+
+    --dark: #121213;
+    --light: #dfdfdf;
+
+    --lightSecondary: #eeeeee;
+    --lightSecondary1: #fafafa;
+
+    --darkSecondary: #1d1d1e;
+    --darkSecondary1: #2f2f32;
+    --darkSecondary2: #525255;
+    --darkSecondary3: #69696c;
+    --darkSecondary4: #7d7d7f;
+
+    --fontHeader: 'Raleway', sans-serif;
+    --fontText: 'Padauk', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+@keyframes LogoRotation {
+    0% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+#logo {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    animation: 0.5s LogoRotation;
+    width: 10%;
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 70%;
+}
+
+.searchBar {
+    margin-top: 20px;
+    position: relative;
+    left: 50%;
+}
+
+.searchBar input {
+    transform: translate(-50%);
+    font-size: 2em;
+
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#cringeList {
+    list-style-type:none;
+    text-align: center;
+
+    padding: 20px;
+}
+
+@keyframes AppearItem {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#cringeList li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    border: 2px solid var(--darkSecondary4);
+    border-radius: 5px;
+    font-size: 2em;
+
+    background-color: var(--lightSecondary);
+
+    animation: 0.5s AppearItem;
+}
+
+#cringeList li:hover {
+    cursor: pointer;
+    background-color: var(--lightSecondary1);
+}
