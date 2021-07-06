@@ -3,18 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../generalStyle.css">
 </head>
 <body>
 
 <script src="../data.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="main.js" defer></script>
+<script src="../sariku.js" defer></script>
 
-
-<img src="../icons/Logo.png" id="logo" alt="Well that should be the logo">
+<a href="../index.html">
+    <img src="../icons/Logo.png" id="logo" alt="Well that should be the logo">
+</a>
 
 <div class="page">
 
+    <div class="title">Clamp</div>
 
+    <div class="description">
+        <h2>Clamp is a function that ensures that a value is inside some limits.</h2>
+
+        <canvas id="canvas"></canvas>
+        <br>
+
+        Imagine a variable which value can be anything. You would like to confine it to a range from 0 to 50. If the value goes below 0, it will remain as 0.
+        If it goes over 50, it will remain as 50.
+        <br><br>
+        Clamp does this exact thing.<br><br>
+        The function has 3 parameters; value, min, max, in that order. Value is the value that you want to confine, min is the minimum value and max
+        is the maximum value.<br><br>
+
+        For the example mentioned above, it would be:<br>
+
+        <pre class="prettyprint">let outputValue = Clamp(value, 0, 50);</pre>
+
+        If the input value is 25, the output would still be 25.
+    </div>
 
 </div>
 
