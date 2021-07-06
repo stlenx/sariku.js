@@ -368,6 +368,10 @@ if (typeof frame == 'function') {
     window.requestAnimationFrame(animationFrame)
 }
 
+if (typeof resize == 'function') {
+    window.onresize = resize;
+}
+
 function StrokeLine(p1, p2) {
     ctx.beginPath();
     ctx.moveTo(p1.x, p1.y);

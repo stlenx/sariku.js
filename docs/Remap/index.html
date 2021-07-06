@@ -9,6 +9,8 @@
 
 <script src="../data.js" defer></script>
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="main.js" defer></script>
+<script src="../../sariku.js" defer></script>
 
 <img src="../icons/Logo.png" id="logo" alt="Well that should be the logo">
 
@@ -18,6 +20,9 @@
 
     <div class="description">
         <h2>Remap is a function that "remaps" a value from one range to another.</h2>
+
+        <canvas id="canvas"></canvas>
+        <br>
 
         Imagine a variable which value ranges from 0 to 100, and you would like to represent that as a color.
         In order to show the full range of the value, the color that you will be showing goes from 0 to 255.
