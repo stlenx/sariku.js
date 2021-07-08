@@ -1,6 +1,6 @@
 data = [
     "Remap", //Done
-    "Clamp",
+    "Clamp", //Done
     "getLength",
     "CheckBoxCollision",
     "WeightedRandom",
