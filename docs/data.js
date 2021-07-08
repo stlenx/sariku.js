@@ -1,9 +1,9 @@
 data = [
     "Remap", //Done
     "Clamp", //Done
-    "getLength",
-    "CheckBoxCollision",
-    "WeightedRandom",
+    "getLength", //Done
+    "CheckBoxCollision", //Wtf is this function
+    "WeightedRandom", //Not gonna explain this atm.
     "hexToRgb",
     "rgbToHex",
     "hslToHex",

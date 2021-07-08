@@ -2,19 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <title>hexToRgb</title>
+    <link rel="stylesheet" href="../generalStyle.css">
 </head>
 <body>
 
-<script src="../data.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../sariku.js" defer></script>
 
-
-<img src="../icons/Logo.png" id="logo" alt="Well that should be the logo">
+<a href="../index.html">
+    <img src="../icons/Logo.png" id="logo" alt="Well that should be the logo">
+</a>
 
 <div class="page">
 
+    <div class="title">hexToRgb</div>
 
+    <div class="description">
+        <h2>hexToRgb is a function that coverts hex values to rgb.</h2>
+
+        <canvas id="canvas"></canvas>
+        <br>
+
+        It takes a string value and returns an object with r,g and b attributes.
+
+        <br>
+
+        <pre class="prettyprint">let outputValue = hexToRgb("#3fe0e0");</pre>
+
+        The output's rgb values are 63, 224 and 224.
+    </div>
 
 </div>
 

@@ -2,19 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <title>WeightedRandom</title>
+    <link rel="stylesheet" href="../generalStyle.css">
 </head>
 <body>
 
-<script src="../data.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../sariku.js" defer></script>
 
-
-<img src="../icons/Logo.png" id="logo" alt="Well that should be the logo">
+<a href="../index.html">
+    <img src="../icons/Logo.png" id="logo" alt="Well that should be the logo">
+</a>
 
 <div class="page">
 
+    <div class="title">WeightedRandom</div>
 
+    <div class="description">
+        <h2>CheckBoxCollision is a function that returns a boolean if 2 given rectangles are inside of each other.</h2>
+
+        <canvas id="canvas"></canvas>
+        <br>
+
+        Imagine a variable which value ranges from 0 to 100, and you would like to represent that as a color.
+        In order to show the full range of the value, the color that you will be showing goes from 0 to 255.
+        <br><br>
+        The remap function calculates this for you!<br><br>
+        The function has 5 parameters; value, from1, to1, from2, to2, in that order. From1 and to1 are the minimum and maximum values the value can be,
+        same for from2 and to2, but this time for the output value.<br><br>
+
+        For the example mentioned above, it would be:<br>
+
+        <pre class="prettyprint">let outputValue = Remap(value, 0, 100, 0 255);</pre>
+
+        If the input value is 50, the output would be 127,5.
+    </div>
 
 </div>
 
