@@ -318,19 +318,19 @@ let canvas = document.getElementById("canvas")
 if(canvas.getAttribute('property') !== null) {
     switch (canvas.getAttribute('property')) {
         case "fullscreen": {
-            canvas.setAttribute("width", window.innerWidth)
-            canvas.setAttribute("height", window.innerHeight)
+            canvas.setAttribute("width", window.innerWidth);
+            canvas.setAttribute("height", window.innerHeight);
             break;
         }
         case "square": {
-            canvas.setAttribute("width", window.innerHeight)
+            canvas.setAttribute("width", window.innerHeight);
             break;
         }
     }
 }
 let ctx = canvas.getContext("2d");
 
-let input = {}
+let input = {};
 
 let mouse = new Vector2(0, 0);
 
@@ -348,28 +348,33 @@ window.addEventListener("mousemove", (e) => {
 })
 
 if (typeof setup == 'function') {
-    setup()
+    setup();
 }
 
 let lastFrame = Date.now();
 function animationFrame() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     let now = Date.now();
     let dt = now - lastFrame;
     lastFrame = now;
 
-    frame(dt)
+    frame(dt);
 
-    window.requestAnimationFrame(animationFrame)
+    window.requestAnimationFrame(animationFrame);
 }
 
 if (typeof frame == 'function') {
-    window.requestAnimationFrame(animationFrame)
+    window.requestAnimationFrame(animationFrame);
 }
 
 if (typeof resize == 'function') {
     window.onresize = resize;
+} else {
+    window.onresize = function () {
+        canvas.setAttribute("width", window.innerWidth);
+        canvas.setAttribute("height", window.innerHeight);
+    }
 }
 
 function StrokeLine(p1, p2) {
