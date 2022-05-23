@@ -29,12 +29,12 @@ function normalizeWeights(weights){
 
 function hexToRgb(hex) {
     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(shorthandRegex, function(m, r, g, b) {
         return r + r + g + g + b + b;
     });
 
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
@@ -142,6 +142,18 @@ class Vector2 {
     Scale(amount) {
         this.x *= amount;
         this.y *= amount;
+    }
+
+    ReturnMult(vector) {
+        return new Vector2(this.x * vector, this.y * vector)
+    }
+
+    ReturnAdd(vector) {
+        return new Vector2(this.x + vector, this.y + vector)
+    }
+
+    ReturnMinus(vector) {
+        return new Vector2(this.x - vector, this.y - vector)
     }
 
     ReturnScaled(amount) {
@@ -313,17 +325,25 @@ SoundPlayer.prototype.stop = function(when) {
 //#endregion
 
 //#endregion
+let presets = {
+    fullscreen : "fullscreen",
+    square: "square"
+}
 
 let canvas = document.getElementById("canvas")
+let property = null;
 if(canvas.getAttribute('property') !== null) {
     switch (canvas.getAttribute('property')) {
-        case "fullscreen": {
+        case presets.fullscreen: {
             canvas.setAttribute("width", window.innerWidth);
             canvas.setAttribute("height", window.innerHeight);
+            property = presets.fullscreen;
             break;
         }
-        case "square": {
-            canvas.setAttribute("width", window.innerHeight);
+        case presets.square: {
+            canvas.setAttribute("width", window.innerHeight >= window.innerWidth ? window.innerHeight : window.innerWidth);
+            canvas.setAttribute("height", window.innerHeight >= window.innerWidth ? window.innerHeight : window.innerWidth);
+            property = presets.square;
             break;
         }
     }
@@ -371,9 +391,20 @@ if (typeof frame == 'function') {
 if (typeof resize == 'function') {
     window.onresize = resize;
 } else {
-    window.onresize = function () {
-        canvas.setAttribute("width", window.innerWidth);
-        canvas.setAttribute("height", window.innerHeight);
+    switch (property) {
+        case presets.fullscreen:
+            window.onresize = function () {
+                canvas.setAttribute("width", window.innerWidth);
+                canvas.setAttribute("height", window.innerHeight);
+            }
+            break;
+
+        case presets.square:
+            window.onresize = function () {
+                canvas.setAttribute("width", window.innerHeight >= window.innerWidth ? window.innerHeight : window.innerWidth);
+                canvas.setAttribute("height", window.innerHeight >= window.innerWidth ? window.innerHeight : window.innerWidth);
+            }
+            break;
     }
 }
 
