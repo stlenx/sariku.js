@@ -40,3 +40,5 @@ Apart from just holding values they come with functions in them for easy use (no
 ### Wow you are really selling this aren't you?
 
 ## Nah it's completly free!
+
+<iframe src="docs/getLength/index.html">
